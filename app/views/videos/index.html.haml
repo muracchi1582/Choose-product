@@ -12,6 +12,6 @@
       ジャンルで探す
     .search_bottom_1
       = form_tag("/videos/genre",method: :get) do
-        -# =collection_check_boxes :genre,:keywords,Genre.all,:name,:name
-        =submit_tag 'Search',class:"search__bottun"
+        = collection_check_boxes :genre,:keywords,Genre.all,:name,:name
+        = submit_tag 'Search',class:"search__bottun"
   =link_to "商品の一覧", "/genres",class:"product__list__link"

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     end
   end
   resources :users, only: [:index,:show]
+  resources :genres, only: [:index,:show,:new]
 
   get "/products" => "products#index"
   post "products/:id/pay" => 'products#pay'
