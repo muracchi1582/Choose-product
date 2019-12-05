@@ -18,9 +18,20 @@ class VideosController < ApplicationController
   end
 
   def show
-    @videos　=　Video.order(created_at: :DESC).limit(4)
-    @video　=　Video.find(params[:id])
+    @videos = Video.order(created_at: :DESC).limit(4)
+    @video = Video.find(params[:id])
   end
+
+  def destroy
+    Video.delete(params[:id])
+    redirect_to root_path
+  end
+
+  def edit
+    @video=Video.find(params[:id])
+  end
+
+  
 
   private
 

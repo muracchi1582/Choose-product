@@ -9,11 +9,11 @@
       %p.video__user 投稿者
       = @video.user.name
     .show__video__product
-      %p.video__product 紹介する本
-      = @video.product.title
+      %p.video__product 紹介する商品
+      -# = @video.product.title
     .video__product__price
       %p.video__product 価格
-      = @video.product.price
+      -# = @video.product.price
       円
     .show_shop_link
       =link_to "購入画面へ進む","/videos/#{@video.id}/products/#{@video.product_id}",class:"shop__link"
