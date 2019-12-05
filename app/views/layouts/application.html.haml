@@ -12,16 +12,33 @@
     %link{:href => "https://use.fontawesome.com/releases/v5.6.1/css/all.css", :rel => "stylesheet"}/
   %body
     .wrapper
-      .header
-        .header__left
-          =link_to "Choose-product",root_path,class: "index__title"
-        .search__top
-          = form_tag(search_videos_path,method: :get) do
-            =text_field_tag :keyword, nil,class:"search__field",placeholder:"タイトルで探す"
-            =submit_tag 'Search', name: :nil,class:"search__bottun"
-        .header__right       
-          =link_to "新規投稿","/videos/new",class: "list"
-          =link_to "ログアウト","/users/sign_out", class:"list",method: :delete
-          =link_to "動画編集", "/users",class:"list"
-          -# =link_to "購入履歴", "/users/#{current_user.id}/history",class:"list"
-          -# =link_to "利益表", "/users/#{current_user.id}/profit",class:"list"
+      -if user_signed_in?
+        .header
+          .header__left
+            =link_to "Choose-product",root_path,class: "index__title"
+          .search__top
+            = form_tag(search_videos_path,method: :get) do
+              =text_field_tag :keyword, nil,class:"search__field",placeholder:"タイトルで探す"
+              =submit_tag 'Search', name: :nil,class:"search__bottun"
+          .header__right       
+            =link_to "新規投稿","/videos/new",class: "list"
+            =link_to "ログアウト","/users/sign_out", class:"list",method: :delete
+            =link_to "動画編集", "/users",class:"list"
+            -# =link_to "購入履歴", "/users/#{current_user.id}/history",class:"list"
+            -# =link_to "利益表", "/users/#{current_user.id}/profit",class:"list"
+      
+      -else
+        .header
+          .header__left
+            =link_to "Choose-product",root_path,class: "index__title"
+          .search__top
+            = form_tag(search_videos_path,method: :get) do
+              =text_field_tag :keyword, nil,class:"search__field",placeholder:"タイトルで探す"
+              =submit_tag 'Search', name: :nil,class:"search__bottun"
+          .header__right
+            %ul
+              %li
+                =link_to "ログイン", new_user_session_path,class:"list"
+              %li 
+                =link_to "新規登録", new_user_registration_path,class:"list"
+      = yield

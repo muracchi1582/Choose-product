@@ -30,14 +30,14 @@
 }
 
 .list{
+    display:block;
     font-size: 15px;
     padding: 10px;
     color: rgb(255, 255, 255);
     background-color: $deep_blue;
-    text-decoration: none; 
+    text-decoration: none;
     border-radius:5px 5px 15px 5px;
 }
-
 
 .index__title{
   text-decoration: none; 
@@ -60,12 +60,14 @@
   font-size: 30px;
   }
   &__right{
-    padding: 20px 20px 0 0;
+    padding: 0 20px 0 0;
     float: right;
     font-size: 20px;
     li{
+      display:block;
       float: right;
       padding-right: 15px;
+      list-style-type: none;
     }
   }
   &__left{
