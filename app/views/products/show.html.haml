@@ -1,0 +1,40 @@
+.pay__show__wrapper
+  .box-inner
+    #one-time-payment-methods.one-time.a-spacing-large
+      .a-row
+        %strong.a-size-medium クレジットカード以外の支払い方法
+      %hr.a-spacing-mini.a-spacing-top-small/
+      .a-row.payment-row
+        .vertical-center-grid
+          .radio-col.spacing-right-small
+            %input{"aria-label" => "", "data-testid" => "", :name => "paymentMethod", :type => "radio", :value => "cashOnDeliveryCash"}/
+          .cashOnDeliveryCash
+            %strong 代金引換
+            国内配送のみ。代引手数料がかかります。獲得したポイントは、支払い後に確定します。詳しくは
+            %a{:href => "/", :target => "AmazonHelp"}> こちら
+            をご確認ください。
+        #globalCODData
+          %input#isGlobalCODEligible{:type => "hidden", :value => "0"}/
+      .a-row.payment-row
+        .vertical-center-grid
+          .radio-col.spacing-right-small
+            %input{"aria-label" => "", "data-testid" => "", :name => "paymentMethod", :type => "radio", :value => "convenienceStorePayment"}/
+          .convenienceStorePayment
+            %strong コンビニ・ATM・ネットバンキング・ 電子マネー払い
+            代金のお支払い後に商品が発送されます。なお、お支払いの際に必要となるお支払い番号は、出荷準備に入り次第発行されます。発行後は注文履歴からもお支払い番号を確認できます。その他の詳細は
+            %a{:href => "/", :target => "AmazonHelp"}> こちら
+            。
+        #globalCODData
+          %input#isGlobalCODEligible{:type => "hidden", :value => "0"}/
+      %input#continue-top{"data-testid" => "", :tabindex => "0", :type => "submit", :value => "次に進む",class:"next-button"}/
+    .a-spacing-large
+    .else__wrapper
+      その他のお支払い方法
+      %hr.a-spacing-mini.a-spacing-top-small/
+      .card__wrapper
+        .card__title クレジットカード:
+        = form_tag(action: :pay, method: :post) do
+          %script.payjp-button{"data-key" => ENV["PUBLIC_TEST_KEY"], :src => "https://checkout.pay.jp", :type => "text/javascript"}
+          %input{ value:"#{@video_id}", type:"hidden",name: "keyword"}
+    .amazon
+      =link_to "amazonでの購入","#{@product.link}",class:"amazon_link"

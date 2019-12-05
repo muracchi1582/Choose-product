@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   resources :users, only: [:index,:show]
 
   get "/products" => "products#index"
+  post "products/:id/pay" => 'products#pay'
 end

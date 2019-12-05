@@ -1,0 +1,15 @@
+-@videos.each do |video|
+  .search_content
+    .search_content__image
+      = image_tag video.image.url,class: "search__index__image" if video.image.present?
+    .search_content__title
+      .title__text
+        =video.title.truncate(40,omission:"...")
+    .search_content__user
+      .user__text
+        =video.user.name
+    .search_content__info
+      .info__text
+        =video.information 
+    .video__delete
+      = link_to "削除","/videos/#{video.id}",method: :delete, class: "delete__bottun"
