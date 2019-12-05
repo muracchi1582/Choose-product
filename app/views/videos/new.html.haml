@@ -1,6 +1,6 @@
 .form_wrapper
   .form_paper
-    = form_for(@video) do |f|{class:"main_form"}
+    = form_for @video do |f|
       .top_form
         =f.label :name, "タイトル",class:"top_title"
         =f.text_field :title,class:"text_field"

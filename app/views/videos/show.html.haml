@@ -1,5 +1,5 @@
 .show__wrapper
-  = video_tag @video.movie_url.to_s,loop: true, controls: true ,class: "show__video"
+  = video_tag @video.movie_url.to_s, loop: true, controls: true ,class: "show__video"
   .show__video__title
     %p.video__title タイトル
     = @video.title

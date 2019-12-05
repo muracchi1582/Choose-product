@@ -14,7 +14,6 @@ class VideosController < ApplicationController
     @product = Product.new
     @video.save
     @product.save
-    binding.pry
     redirect_to root_path
   end
 
@@ -27,5 +26,6 @@ class VideosController < ApplicationController
 
   def video_params
     params.require(:video).permit(:title, :movie, :image, :product_id, :information)
+          .merge(user_id: current_user.id)
   end
 end
