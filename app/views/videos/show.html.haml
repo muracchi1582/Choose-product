@@ -1,0 +1,27 @@
+.show__wrapper
+  = video_tag @video.movie_url.to_s,loop: true, controls: true ,class: "show__video"
+  .show__video__title
+    %p.video__title タイトル
+    = @video.title
+    .show__video__id
+      1500回視聴
+    .show__video__user
+      %p.video__user 投稿者
+      = @video.user.name
+    .show__video__product
+      %p.video__product 紹介する本
+      = @video.product.title
+    .video__product__price
+      %p.video__product 価格
+      = @video.product.price
+      円
+    .show_shop_link
+      =link_to "購入画面へ進む","/videos/#{@video.id}/products/#{@video.product_id}",class:"shop__link"
+
+  -@videos.each do |video|
+    .show__contents
+      .show__contents__image
+        = link_to image_tag video.image.url,href:"/videos/#{video.id}",class: "show__image" if video.image.present?
+      .show__contents__title
+        = link_to "#{video.title}".truncate(27,omission:"..."),"/videos/#{video.id}",class: "show__text"
+        = link_to "#{video.user.name}","/videos/#{video.id}",class: "index__user"

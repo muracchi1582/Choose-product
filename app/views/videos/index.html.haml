@@ -2,7 +2,7 @@
   -@videos.each do |video|
     .content
       .content__image
-        -# = link_to  image_tag video.image.url,class: "index__image" if video.image.present?
+        = link_to  image_tag video.image.url,class: "index__image" if video.image.present?
       .content__title
         = link_to "#{video.title}".truncate(27,omission:"..."),"/videos/#{video.id}",class: "index__text"
         = link_to "#{video.user.name}","/videos/#{video.id}",class: "index__user"
