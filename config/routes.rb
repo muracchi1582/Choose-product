@@ -13,4 +13,5 @@ Rails.application.routes.draw do
 
   get "/products" => "products#index"
   post "products/:id/pay" => 'products#pay'
+  get "users/:id/history" => "users#history"
 end
