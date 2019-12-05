@@ -1,3 +1,6 @@
 Rails.application.routes.draw do
-  get 'videos' => 'videos#index'
+  devise_for :users
+  root 'videos#index'
+  get  'videos/new' => 'videos#new'
+  post 'videos'     => 'videos#create'
 end
