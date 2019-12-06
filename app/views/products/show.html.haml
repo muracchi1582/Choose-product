@@ -24,17 +24,17 @@
             代金のお支払い後に商品が発送されます。なお、お支払いの際に必要となるお支払い番号は、出荷準備に入り次第発行されます。発行後は注文履歴からもお支払い番号を確認できます。その他の詳細は
             %a{:href => "/", :target => "AmazonHelp"}> こちら
             。
-        #globalCODData
-          %input#isGlobalCODEligible{:type => "hidden", :value => "0"}/
-      %input#continue-top{"data-testid" => "", :tabindex => "0", :type => "submit", :value => "次に進む",class:"next-button"}/
+      -#   #globalCODData
+      -#     %input#isGlobalCODEligible{:type => "hidden", :value => "0"}/
+      -# %input#continue-top{"data-testid" => "", :tabindex => "0", :type => "submit", :value => "次に進む",class:"next-button"}/
     .a-spacing-large
     .else__wrapper
       その他のお支払い方法
       %hr.a-spacing-mini.a-spacing-top-small/
       .card__wrapper
-        .card__title クレジットカード:
-        = form_tag(action: :pay, method: :post) do
-          %script.payjp-button{"data-key" => ENV["PAYJP_PUBLIC_KEY"], :src => "https://checkout.pay.jp", :type => "text/javascript"}
-          %input{ value:"カードで支払う", type:"button",name: "keyword"}
+        .card__title 金額:
+        = form_with local: true, url: products_pay_path do |f|
+          = f.text_field :amount
+          %script.payjp-button{"data-key" => "#{ENV["PAYJP_PUBLIC_KEY"]}", :src => "https://checkout.pay.jp", :type =>"text/javascript"}
     .amazon
       =link_to "amazonでの購入","#{@product.link}",class:"amazon_link"

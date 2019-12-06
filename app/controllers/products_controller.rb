@@ -15,10 +15,10 @@ class ProductsController < ApplicationController
     user_id = video.user_id
     Profit.create(product_id:product.id,user_id:user_id,price:profit)
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
-    charge = Payjp::Charge.create(
+    Payjp::Charge.create(
     amount: product.price,
     card: params['payjp-token'],
-    currency: 'jpy',
+    currency: 'jpy'
     )
     # if user_signed_in?
     #   History.create(product_id:product.id,user_id:current_user.id,price:product.price)
