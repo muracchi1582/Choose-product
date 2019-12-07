@@ -6,9 +6,7 @@
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
-    %script{src:"<$MTStaticWebPath$>data-api/v3/js/mt-data-api.js"}
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-    %link{:href => "https://use.fontawesome.com/releases/v5.6.1/css/all.css", :rel => "stylesheet"}/
   %body
     .wrapper
       -if user_signed_in?
@@ -22,9 +20,7 @@
           .header__right       
             =link_to "新規投稿","/videos/new",class: "list"
             =link_to "ログアウト","/users/sign_out", class:"list",method: :delete
-            =link_to "動画編集", "/users",class:"list"
-            =link_to "購入履歴", "/users/#{current_user.id}/history",class:"list"
-            -# =link_to "利益表", "/users/#{current_user.id}/profit",class:"list"
+            =link_to "動画削除", "/users",class:"list"
       
       -else
         .header

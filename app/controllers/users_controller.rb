@@ -7,9 +7,4 @@ class UsersController < ApplicationController
   def show
   end
 
-  def history
-    @user = User.find(current_user.id)
-    @videos = @user.videos
-    # @histories = @user.histories
-  end
 end
