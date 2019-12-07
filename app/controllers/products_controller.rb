@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
 
+  require "payjp"
+
   def index
   end
 
@@ -20,9 +22,5 @@ class ProductsController < ApplicationController
     card: params['payjp-token'],
     currency: 'jpy'
     )
-    # if user_signed_in?
-    #   History.create(product_id:product.id,user_id:current_user.id,price:product.price)
-    # end
-    
   end
 end
