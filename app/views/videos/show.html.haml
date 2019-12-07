@@ -3,11 +3,6 @@
   .show__video__title
     %p.video__title タイトル
     = @video.title
-    .show__video__id
-      1500回視聴
-    .show__video__user
-      %p.video__user 投稿者
-      = @video.user.name
     .show_shop_link
       =link_to "購入画面へ進む","/videos/#{@video.id}/products/#{@video.product_id}",class:"shop__link"
 
