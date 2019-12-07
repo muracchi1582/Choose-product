@@ -18,5 +18,8 @@
     .a-spacing-large
     .else__wrapper
       お支払い方法
+      = form_with local: true, url: products_pay_path do |f|
+        :plain
+        %script{type: "text/javascript", src: "https://checkout.pay.jp", class:"payjp-button", "data-text": "購入する", "data-key": "pk_test_7be4443defa4ee66bc4d7821"}
     .amazon
       =link_to "amazonでの購入","#{@product.link}",class:"amazon_link"

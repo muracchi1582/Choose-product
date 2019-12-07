@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   resources :genres, only: [:index,:show,:new]
 
   get "/products" => "products#index"
+  post 'products/:id/pay' => 'products#pay', as: :products_pay
 end
