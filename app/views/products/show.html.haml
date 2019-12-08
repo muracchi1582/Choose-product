@@ -1,0 +1,25 @@
+.pay__show__wrapper
+  .box-inner
+    #one-time-payment-methods.one-time.a-spacing-large
+      .a-row
+        %strong.a-size-medium アマゾンでの購入にあたり注意事項
+      %hr.a-spacing-mini.a-spacing-top-small/
+      .a-row.payment-row
+        .vertical-center-grid
+          .cashOnDeliveryCash
+            %strong 代金引換
+            国内配送のみ。代引手数料がかかります。
+      .a-row.payment-row
+        .vertical-center-grid
+          .convenienceStorePayment
+            %strong コンビニ・ATM・ネットバンキング・ 電子マネー払い
+            代金のお支払い後に商品が発送されます。
+      
+    .a-spacing-large
+    .else__wrapper
+      お支払い方法
+      = form_with local: true, url: products_pay_path do |f|
+        :plain
+        %script{type: "text/javascript", src: "https://checkout.pay.jp", class:"payjp-button", "data-text": "購入する", "data-key": "pk_test_7be4443defa4ee66bc4d7821"}
+    .amazon
+      =link_to "amazonでの購入","#{@product.link}",class:"amazon_link"

@@ -1,0 +1,40 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Choose-product
+    = csrf_meta_tags
+    = csp_meta_tag
+    %script{src: "https://js.pay.jp/", type: "text/javascript"}
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    .wrapper
+      -if user_signed_in?
+        .header
+          .header__left
+            =link_to "Choose-product",root_path,class: "index__title"
+          .search__top
+            = form_tag(search_videos_path,method: :get) do
+              =text_field_tag :keyword, nil,class:"search__field",placeholder:"タイトルで探す"
+              =submit_tag 'Search', name: :nil,class:"search__bottun"
+          .header__right       
+            =link_to "新規投稿","/videos/new",class: "list"
+            =link_to "ログアウト","/users/sign_out", class:"list",method: :delete
+            =link_to "動画削除", "/users",class:"list"
+      
+      -else
+        .header
+          .header__left
+            =link_to "Choose-product",root_path,class: "index__title"
+          .search__top
+            = form_tag(search_videos_path,method: :get) do
+              =text_field_tag :keyword, nil,class:"search__field",placeholder:"タイトルで探す"
+              =submit_tag 'Search', name: :nil,class:"search__bottun"
+          .header__right
+            %ul
+              %li
+                =link_to "ログイン", new_user_session_path,class:"list"
+              %li 
+                =link_to "新規登録", new_user_registration_path,class:"list"
+      = yield
