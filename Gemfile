@@ -82,3 +82,4 @@ gem 'jquery-rails'
 gem 'payjp'
 gem "font-awesome-rails"
 gem 'dotenv-rails'
+gem 'fog-aws'
