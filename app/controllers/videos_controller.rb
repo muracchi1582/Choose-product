@@ -44,11 +44,18 @@ class VideosController < ApplicationController
     end
   end
   
+  def s3
+    s3 = get_s3_resource  # S3.Resourse インスタンスを作成
+  end
 
   private
 
   def video_params
     params.require(:video).permit(:title, :movie, :image, :product_id, :information)
           .merge(user_id: current_user.id)
+  end
+
+  def get_s3_resource
+    Aws::S3::Resource.new(region: ap-northeast-1)
   end
 end

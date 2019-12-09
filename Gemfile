@@ -83,3 +83,5 @@ gem 'payjp'
 gem "font-awesome-rails"
 gem 'dotenv-rails'
 gem 'fog-aws'
+gem 'aws-sdk-rails'
+gem 'aws-sdk-s3', '~> 1'
