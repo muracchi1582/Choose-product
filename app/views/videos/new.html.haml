@@ -6,8 +6,7 @@
         =f.text_field :title, class:"text_field"
       .product__form
         =f.label :name, "検索",class:"product_search"
-        =f.text_field :product_id, class:"product_text_field"
-        -# %input{ placeholder: "紹介したい商品を入力してください", type:"text",name: "keyword",class:"product_text_field"}
+        %input{ placeholder: "紹介したい商品を入力してください", type:"text",name: "keyword",class:"product_text_field"}
         #product-search-result.products_list
           -@products.each do |product|
             .product_list_form
@@ -16,7 +15,7 @@
               .product_list_add{"data-product-id" => "#{product.id}", "data-product-title" => "#{product.title}"} 追加
         =f.label :name,"投稿する商品",class:"selected_product_label"
         .selected-product
-        a
+        
       .bottom_form_search
         =f.label :name,"説明",class:"video_info_label"
         =f.text_area :information,class:"video_info_area",placeholder:"説明"
