@@ -3,10 +3,11 @@
     = form_for @video do |f|
       .top_form
         =f.label :name, "タイトル",class:"top_title"
-        =f.text_field :title,class:"text_field"
+        =f.text_field :title, class:"text_field"
       .product__form
         =f.label :name, "検索",class:"product_search"
-        %input{ placeholder: "紹介したい商品を入力してください", type:"text",name: "keyword",class:"product_text_field"}
+        =f.text_field :product_id, class:"product_text_field"
+        -# %input{ placeholder: "紹介したい商品を入力してください", type:"text",name: "keyword",class:"product_text_field"}
         #product-search-result.products_list
           -@products.each do |product|
             .product_list_form
