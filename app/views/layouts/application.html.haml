@@ -24,7 +24,7 @@
             =link_to "新規投稿","/videos/new",class: "list"
             =link_to "ログアウト","/users/sign_out", class:"list",method: :delete
             =link_to "動画削除", "/users",class:"list"
-      
+            =link_to "購入履歴", "/users/#{current_user.id}/history",class:"list"
       -else
         .header
           .header__left

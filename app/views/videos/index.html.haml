@@ -7,4 +7,11 @@
         = link_to "#{video.title}".truncate(27,omission:"..."),"/videos/#{video.id}",class: "index__text"
         = link_to "#{video.user.name}","/videos/#{video.id}",class: "index__user"
   
-  
+  .search__bottom_wrapper
+    .check_box_title
+      ジャンルで探す
+    .search_bottom_1
+      = form_tag("/videos/genre",method: :get) do
+        =collection_check_boxes :genre,:keywords,Genre.all,:name,:name
+        =submit_tag 'Search',class:"search__bottun"
+  =link_to "商品の一覧", "/genres",class:"product__list__link"
