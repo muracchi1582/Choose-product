@@ -1,4 +1,6 @@
 class VideosController < ApplicationController
+  before_action :video_params,only: [:create]
+
   def index
     @videos = Video.all
   end
@@ -12,8 +14,8 @@ class VideosController < ApplicationController
   def create
     @video = Video.new(video_params)
     @product = Product.new
-    @video.save
     @product.save
+    @video.save
     redirect_to root_path
   end
 
