@@ -5,7 +5,6 @@ Rails.application.routes.draw do
       resources :products, only: [:show]
       collection do
         get 'search'
-        get 'genre'
       end
     end
 
@@ -20,4 +19,4 @@ Rails.application.routes.draw do
 
     get "/products" => "products#index"
     post "products/:id/pay" => 'products#pay', as: :products_pay
-end
+  end
