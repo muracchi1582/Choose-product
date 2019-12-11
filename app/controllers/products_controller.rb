@@ -14,9 +14,11 @@ class ProductsController < ApplicationController
   end
 
   def pay
+    product = Product.find(params[:id])
+    History.create(product_id:product.id, user_id:current_user.id, price:product.price)
     Payjp.api_key = ENV['PAYJP_SECRET_KEY']
     charge = Payjp::Charge.create(
-    :amount => 3500,
+    :amount => product.price,
     :card => params['payjp-token'],
     :currency => 'jpy',
     )
