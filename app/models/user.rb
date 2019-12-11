@@ -5,6 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :videos
   has_many :histories
-  has_many :cards
   has_many :profits
 end

@@ -42,7 +42,7 @@ class VideosController < ApplicationController
     @products2= []
     @tests.each do |test|
       @products = Product.where("genre = ?",test)
-      # @product2 << @products
+      @products2 << @products
     end
   end
   

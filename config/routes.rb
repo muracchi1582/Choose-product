@@ -11,7 +11,6 @@ Rails.application.routes.draw do
 
     resources :users, only: [:index,:show] do
       member do 
-        post 'pay'
         get 'history'
         get 'profit'
       end
@@ -20,4 +19,5 @@ Rails.application.routes.draw do
     resources :genres, only: [:index,:show,:new]
 
     get "/products" => "products#index"
+    post "products/:id/pay" => 'products#pay', as: :products_pay
 end

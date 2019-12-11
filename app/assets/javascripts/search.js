@@ -53,4 +53,7 @@ $(function() {
   $(document).on("click",".product-search-remove", function() {
     $(".form__select__product").remove()
   });
+  $(document).on("click",".check_box_title", function(){
+    console.log("ok")
+  });
 });
