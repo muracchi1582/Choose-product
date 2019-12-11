@@ -6,12 +6,18 @@ Rails.application.routes.draw do
       collection do
         get 'search'
         get 'genre'
+      end
     end
-  end
-  resources :users, only: [:index,:show]
-  resources :genres, only: [:index,:show,:new]
 
-  get "/products" => "products#index"
-  post 'products/:id/pay' => 'products#pay', as: :products_pay
-  get "users/:id/history" => "users#history"
+    resources :users, only: [:index,:show] do
+      member do 
+        post 'pay'
+        get 'history'
+        get 'profit'
+      end
+    end
+
+    resources :genres, only: [:index,:show,:new]
+
+    get "/products" => "products#index"
 end

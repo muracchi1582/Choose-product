@@ -6,4 +6,5 @@ class User < ApplicationRecord
   has_many :videos
   has_many :histories
   has_many :cards
+  has_many :profits
 end

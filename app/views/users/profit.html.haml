@@ -1,0 +1,20 @@
+.history__wrapper
+  .history
+    .profit__title
+      利益表
+    -@profits.each_with_index do |profit, id|
+      .histories
+        = id+1
+        = profit.product.title.truncate(14,omission:"...")
+        .created_at
+          = profit.created_at.strftime("%Y/%m/%d %H:%M")
+        .price
+          = profit.price
+          円
+
+    .total
+      .total__price
+        =@total__price
+        円
+      .total__title
+        総売上額
