@@ -1,24 +1,14 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Description
+  自分がおすすめしたい商品を動画として投稿できるサイト。
+  動画を見て気に入ったら商品をアマゾン経由で実際に購入可能です。
+  自分自身品物を購入する場合はYOUTUBE動画を見てから購入した方が失敗が
+  少ないという経験からこのサイトを作りました。
+  将来的には他人も動画をUPすることを可能にし動画経由で商品が売れれば
+  収益が入る仕組みにしていく予定です。
 
-Things you may want to cover:
+##DEMO
 
-* Ruby version
 
-* System dependencies
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

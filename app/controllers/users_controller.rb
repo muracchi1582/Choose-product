@@ -11,12 +11,4 @@ class UsersController < ApplicationController
     @histories = History.all
   end
 
-  def profit
-    @profits = Profit.all
-    @total__price=0
-    @profits.each do |profit|
-      @total__price = @total__price + profit.price 
-    end
-  end
-
 end
