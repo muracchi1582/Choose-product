@@ -16,7 +16,6 @@ class VideosController < ApplicationController
     @product = Product.new
     @product.save
     @video.save
-    binding.pry
     redirect_to root_path
   end
 
