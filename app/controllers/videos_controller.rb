@@ -37,14 +37,6 @@ class VideosController < ApplicationController
     @videos = Video.where( "title LIKE ? ","%#{params[:keyword]}%")
   end
 
-  def genre
-    @tests = params.require(:genre)[:keywords]
-    @products2= []
-    @tests.each do |test|
-      @products = Product.where("genre = ?",test)
-      # @product2 << @products
-    end
-  end
   
   def s3
     s3 = get_s3_resource  # S3.Resourse インスタンスを作成

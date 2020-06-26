@@ -1,7 +1,0 @@
-.products__list__wrapper
-  .product__list__title
-    ジャンルを選んで下さい
-  .genre_list
-    -@genres.each do |genre|
-      .genre_link_list
-        =link_to "#{genre.name}","/genres/#{genre.id}",class: "genre_link"
